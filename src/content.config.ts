@@ -13,4 +13,3 @@ const writing = defineCollection({
 });
 
 export const collections = { writing };
-``
