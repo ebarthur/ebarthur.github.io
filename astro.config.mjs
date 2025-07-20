@@ -12,7 +12,7 @@ import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "http://localhost:4321", // []: Change this
+	site: "https://ebarthur.github.io/",
     vite: {
         server: {
             port: 4321,
