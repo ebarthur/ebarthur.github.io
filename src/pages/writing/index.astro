@@ -1,0 +1,44 @@
+---
+import Container from "@/components/Container.astro";
+import PostCollection from "@/components/PostCollection.astro";
+import SideNavigation from "@/components/SideNavigation.astro";
+import Shell from "@/layouts/Shell.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("writing")).sort(
+  (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()
+);
+---
+
+<Shell title="Writing">
+  <Container class="max-md:px-2 py-32">
+    <SideNavigation href="/">
+      <div class="i-humbleicons-arrow-go-back text-sm"></div>
+      Index
+    </SideNavigation>
+
+    <section class="col-span-1 md:col-span-3 w-full overflow-y-auto mt-3">
+      <h1>Writing</h1>
+
+      <div class="md:w-3/4 text-sm flex flex-col my-6 md:my-12 gap-4">
+        <p class="text-sm font-bold">
+          {posts.length} posts churned out so far. I should probably get a hobby.
+        </p>
+
+        <p class="text-secondary">
+          Writing's never really been my thing. I admire people who can shape
+          their thoughts with care and purpose. My friends are good at that. I
+          mostly just write when something sits in my head too long—and hope it
+          comes out making some kind of sense.
+        </p>
+
+        <p class="text-secondary">
+          Most of what's here is me thinking out loud. If something feels off,
+          I'm open to hearing it. If it resonates, pass it on.
+        </p>
+      </div>
+
+      <PostCollection posts={posts} />
+    </section>
+  </Container>
+</Shell>

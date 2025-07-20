@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"writing">;
+};
+
+const { post } = Astro.props;
+---
+
+<div class="mt-6 flex md:justify-end text-sm">
+  <a
+    href={`/writing/${post.id}`}
+    class="inline-block rounded-lg no-underline border border-stone-200 px-2 py-1 pb-2 transition-[background] duration-200 hover:border-stone-300 dark:border-neutral-700/50 dark:hover:border-neutral-700"
+  >
+    <div class="text-secondary inline-flex items-center gap-2">
+      <div class="i-solar-book-bookmark-line-duotone inline-block"></div> Keep reading
+    </div>
+
+    <div class="ms-5.5 leading-none">{post.data.title}</div>
+  </a>
+</div>

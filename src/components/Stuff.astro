@@ -1,0 +1,66 @@
+---
+import { projects } from "@/lib/consts";
+import type { Column } from "@/lib/types";
+import { getCollection } from "astro:content";
+import GridSection from "./GridSection.astro";
+
+interface Props {
+  delay?: number;
+}
+
+const posts = (await getCollection("writing"))
+  .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
+  .slice(0, 2);
+
+const columns: Column[] = [
+  {
+    label: "Crafts",
+    items: [
+      {
+        title: "Cool stuff",
+        description:
+          "3D modeling with Blender and creative experiments (soon) ",
+        link: "/",
+      },
+    ],
+  },
+  {
+    label: "Projects",
+    items: [
+      ...projects.map((project) => ({
+        title: project.name,
+        description: project.description,
+        link: project.link,
+        isExternal: !project.link.startsWith("/"),
+      })),
+      {
+        title: "All projects",
+        description: "More things I've built and tinkered with",
+        link: "https://github.com/ebarthur",
+        isExternal: true,
+      },
+    ],
+  },
+  {
+    label: "Writing",
+    items: [
+      ...posts.map((post) => ({
+        title: post.data.title,
+        description: post.data.description,
+        link: `/writing/${post.id}`,
+      })),
+      {
+        title: "All writings",
+        description: "Some of my other thoughts spilled out",
+        link: "/writing",
+      },
+    ],
+  },
+];
+
+const { delay } = Astro.props;
+---
+
+<div class="mt-8">
+  <GridSection animate columns={columns} start={delay} />
+</div>

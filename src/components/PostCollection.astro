@@ -1,0 +1,63 @@
+---
+import { shortDate } from "@/lib/date";
+import { groupPosts } from "@/lib/group-posts";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  posts: CollectionEntry<"writing">[];
+};
+
+const { posts } = Astro.props;
+const groupedPosts = groupPosts(posts);
+---
+
+<ul class="mt-10 text-sm group">
+  {
+    groupedPosts.flatMap(([year, posts]) =>
+      posts.map((post, index) => (
+        <li
+          class:list={[
+            "group/item grid grid-cols-5 items-center",
+            index === 0 && "border-t dark:border-neutral-700/50",
+          ]}
+        >
+          <div class="col-span-1 text-secondary px-2 py-3">
+            {index === 0 ? year : ""}
+          </div>
+          <div
+            class:list={[
+              "col-span-4 px-2 py-3 md:ms-6",
+              index > 0 && "border-t dark:border-neutral-700/25",
+            ]}
+          >
+            <div class="flex">
+              <a
+                href={`/writing/${post.id}`}
+                class="truncate flex-1 transition-colors group-hover:text-secondary group-hover:opacity-50 group-hover/item:text-stone-700 dark:group-hover/item:text-neutral-300 group-hover/item:!opacity-100"
+              >
+                <span transition:name={`page-title:${post.data.title}`}>
+                  {post.data.title}
+                </span>
+                {post.data.tags && (
+                  <ul class="inline-flex gap-2">
+                    {post.data.tags?.map((tag) => (
+                      <li>
+                        <code class="rounded-md bg-blue-100 px-1 dark:bg-neutral-800">
+                          {tag}
+                        </code>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </a>
+
+              <span class="text-right text-secondary transition-colors group-hover:opacity-50 group-hover/item:text-stone-700 dark:group-hover/item:text-neutral-400 group-hover/item:!opacity-90">
+                {shortDate(post.data.createdAt)}
+              </span>
+            </div>
+          </div>
+        </li>
+      ))
+    )
+  }
+</ul>

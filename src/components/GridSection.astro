@@ -1,0 +1,79 @@
+---
+import type { Column } from "@/lib/types";
+
+interface Props {
+  columns: Column[];
+  animate?: boolean;
+  start?: number;
+}
+
+const { columns, animate = false, start = 100 } = Astro.props;
+
+const rows = Math.max(...columns.map((col) => col.items.length));
+---
+
+<div class="overflow-x-auto -mx-4 px-4 md:mx-auto md:px-0 md:max-w-screen-lg">
+  <div
+    class="grid gap-4 text-sm"
+    style={`grid-template-columns: repeat(${columns.length}, minmax(180px, 1fr));`}
+  >
+    {
+      columns.map((column) => (
+        <header
+          class:list={[
+            "text-secondary mb-4",
+
+            {
+              "animate-fade-in animate-forwards opacity-0": animate,
+
+              [`animate-delay-${start}`]: animate,
+            },
+          ]}
+        >
+          {column.label}
+        </header>
+      ))
+    }
+
+    {
+      Array.from({ length: rows }, (_, index) =>
+        columns.map((column) => {
+          const item = column.items[index];
+
+          return (
+            <div
+              class:list={[
+                "min-h-20 flex flex-col justify-between",
+
+                {
+                  "animate-fade-in animate-forwards opacity-0": animate,
+
+                  [`animate-delay-${start}`]: animate,
+                },
+              ]}
+            >
+              {item && (
+                <div>
+                  <a
+                    href={item.link}
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
+                    class="underline decoration-1 inline-flex items-center gap-1"
+                  >
+                    {item.title}
+
+                    {item.isExternal && (
+                      <span class="i-solar-arrow-right-up-linear text-neutral-500" />
+                    )}
+                  </a>
+
+                  <p class="text-secondary mt-1">{item.description}</p>
+                </div>
+              )}
+            </div>
+          );
+        })
+      )
+    }
+  </div>
+</div>

@@ -1,0 +1,67 @@
+---
+import ReadMore from "@/components/ReadMore.astro";
+import BlogPost from "@/layouts/BlogPost.astro";
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+
+export const getStaticPaths = (async () => {
+  const posts = (await getCollection("writing")).sort(
+    (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()
+  );
+
+  return posts.map((p, index) => ({
+    params: { slug: p.id },
+    props: {
+      post: p,
+      index,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const dev = process.env.NODE_ENV !== "production";
+
+type Props = {
+  post: CollectionEntry<"writing">;
+  index: number;
+};
+
+const { post, index } = Astro.props;
+const { Content, headings } = await render(post);
+
+const posts = (await getCollection("writing")).sort(
+  (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()
+);
+
+const previous = index > 0 ? posts[index - 1] : undefined;
+---
+
+<BlogPost post={post} headings={headings} title={post.data.title}>
+  <Content />
+
+  <div class="border-t mt-6 border-dashed dark:border-neutral-700/50">
+    {previous && <ReadMore post={previous} />}
+  </div>
+
+  {
+    !dev && (
+      <script
+        src="https://giscus.app/client.js"
+        data-repo=""
+        data-repo-id=""
+        data-category=""
+        data-category-id=""
+        data-mapping=""
+        data-strict=""
+        data-reactions-enabled=""
+        data-emit-metadata=""
+        data-input-position=""
+        data-theme=""
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async
+      />
+    )
+  }
+</BlogPost>

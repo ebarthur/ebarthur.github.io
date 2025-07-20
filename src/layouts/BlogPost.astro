@@ -1,0 +1,64 @@
+---
+import CommonHead from "@/components/CommonHead.astro";
+import Container from "@/components/Container.astro";
+import Footer from "@/components/Footer.astro";
+import Loader from "@/components/Loader.astro";
+import SideNavigation from "@/components/SideNavigation.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
+import Tags from "@/components/Tags.astro";
+import { formatDate } from "@/lib/date";
+import "@/styles.css";
+import type { MarkdownHeading } from "astro";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"writing">;
+  headings: MarkdownHeading[];
+  title: string;
+  description?: string;
+};
+
+const { post, headings, title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <CommonHead title={title} description={description} />
+    <link
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <Loader />
+
+    <Container class="scroll-smooth max-md:px-2 py-32">
+      <SideNavigation href="/writing">
+        <div class="i-solar-arrow-left-up-linear text-sm"></div>
+        Writing
+      </SideNavigation>
+
+      <section class="col-span-1 md:col-span-3 mt-2 w-full">
+        <header class="mb-8">
+          <h1 transition:name={`page-title:${post.data.title}`}>
+            {post.data.title}
+          </h1>
+
+          <div class="text-secondary text-xs flex gap-2">
+            {formatDate(post.data.createdAt)}
+            <Tags tags={post.data.tags || []} />
+          </div>
+        </header>
+
+        <article class="max-w-none text-sm">
+          <slot />
+        </article>
+      </section>
+
+      <TableOfContents headings={headings} />
+    </Container>
+
+    <Footer />
+  </body>
+</html>

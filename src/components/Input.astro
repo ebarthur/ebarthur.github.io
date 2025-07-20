@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"input"> {}
+---
+
+<div class="relative flex items-center w-full">
+  {
+    Astro.slots.has("icon") && (
+      <div class="absolute p-2">
+        <slot name="icon" />
+      </div>
+    )
+  }
+  <input
+    class:list={[
+      "block w-full rounded-lg bg-stone-100 border-stone-300 dark:border-neutral-700 dark:bg-neutral-800 px-2 py-1 disabled:opacity-60 placeholder-text-xs",
+      "focus:ring-0 focus:border-blue-600",
+      Astro.props.class,
+      { "ps-8": Astro.slots.has("icon") },
+    ]}
+    {...Astro.props}
+  />
+</div>
