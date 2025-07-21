@@ -4,16 +4,16 @@ description: "Building a Basic API and Embracing Concurrency with Goroutines."
 createdAt: "16 June 2024"
 ---
 
-When Go 1.22 dropped, I was deep in TypeScript. I’d bookmarked plenty of Go content but never got around to it. Eventually, I picked it up—and it stuck. If you're still on the fence, Go’s own [Why Go?](https://go.dev/solutions/) page makes a solid case.
+When Go 1.22 dropped, I was deep in TypeScript. I had bookmarked plenty of Go content but never got around to it. Eventually, I picked it up, and it stuck. If you're still on the fence, Go’s own [Why Go?](https://go.dev/solutions/) page makes a solid case.
 
-I've since written Go on and off, returning to JavaScript occasionally, only to be reminded of its chaotic ecosystem. Still, I’ve built a solid foundation with Go.
+I've written Go on and off since then. Every time I go back to JavaScript, I’m reminded of how chaotic that ecosystem can be. Still, I’ve built a solid foundation with Go.
 
-A few resources helped:
+A few resources helped me along the way:
 
 - [Learning Go](https://www.amazon.com/Learning-Go-Idiomatic-Real-World-Programming/dp/1492077216) by Jon Bodner
 - [Concurrency in Go](https://www.amazon.com/Concurrency-Go-Tools-Techniques-Developers/dp/1491941197) by Katherine Cox-Buday
 
-Let’s build a simple API server in Go—no frameworks like Gin, just standard library code.
+Let’s build a simple API server in Go. No frameworks, just the standard library.
 
 ## Writing a simple API in Go
 
@@ -29,9 +29,9 @@ Initialize a new module:
 go mod init github.com/ebarthur/golang/api
 ```
 
-You should see a `go.mod` file—similar to `package.json` in JavaScript.
+You should see a `go.mod` file. Think of it as the Go version of `package.json`.
 
-Create a `main.go` file with:
+Create a `main.go` file:
 
 ```go
 package main
@@ -49,7 +49,7 @@ func main() {
 }
 ```
 
-Create an `api.go` file with:
+Now create an `api.go` file:
 
 ```go
 package main
@@ -116,7 +116,7 @@ func RequireAuthMiddleWare(next http.Handler) http.HandlerFunc {
 }
 ```
 
-To chain them:
+To chain them together:
 
 ```go
 server := http.Server{
@@ -139,12 +139,12 @@ Test the endpoint:
 $ curl http://localhost:4032/users/12
 ```
 
-Add the auth token:
+Include the auth token:
 
 ```bash
 $ curl -H "Authorization: Bearer token" http://localhost:4032/users/12
 ```
 
-The middleware checked our request header and our token matched, so it gave us a go-ahead. That was fun.
+The middleware checked the request header and verified the token, so we were allowed through. That was fun.
 
-Maybe let's connect a database, handle more routes, structure things better another time.
+Maybe next time, we’ll connect a database, add more routes, and organize the project a bit more.
