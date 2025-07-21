@@ -7,6 +7,7 @@ import SideNavigation from "@/components/SideNavigation.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import Tags from "@/components/Tags.astro";
 import { formatDate } from "@/lib/date";
+import { getReadTime } from "@/lib/read-time";
 import "@/styles.css";
 import type { MarkdownHeading } from "astro";
 import type { CollectionEntry } from "astro:content";
@@ -19,6 +20,7 @@ type Props = {
 };
 
 const { post, headings, title, description } = Astro.props;
+const readTime = getReadTime(post.body);
 ---
 
 <html lang="en">
@@ -45,8 +47,13 @@ const { post, headings, title, description } = Astro.props;
             {post.data.title}
           </h1>
 
-          <div class="text-secondary text-xs flex gap-2">
-            {formatDate(post.data.createdAt)}
+          <div class="text-secondary text-xs flex gap-2 items-center">
+            <div>
+              <span>{formatDate(post.data.createdAt)}</span>
+              <span>&bull;</span>
+              <span>{readTime} min</span>
+            </div>
+
             <Tags tags={post.data.tags || []} />
           </div>
         </header>
