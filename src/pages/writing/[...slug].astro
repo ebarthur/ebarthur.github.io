@@ -39,7 +39,7 @@ const previous = index > 0 ? posts[index - 1] : undefined;
 <BlogPost post={post} headings={headings} title={post.data.title}>
   <Content />
 
-  <div class="border-t mt-6 border-dashed dark:border-neutral-700/50">
+  <div class="border-t mt-6 mb-4 border-dashed dark:border-neutral-700/50">
     {previous && <ReadMore post={previous} />}
   </div>
 
