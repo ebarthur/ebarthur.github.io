@@ -1,5 +1,5 @@
 ---
-
+import Anchor from "./Anchor.astro";
 ---
 
 <section
@@ -11,12 +11,8 @@
   <p
     class="mt-8 text-sm animate-fade-in animate-delay-700 animate-forwards opacity-0"
   >
-    Reach me <a
-      href="https://x.com/StatmanAartt"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="underline">@StatmanAartt</a
-    >
-    or <a href="mailto:me@eben.sh" class="underline">me@eben.sh</a>
+    Reach me
+    <Anchor href="https://x.com/StatmanAartt" external>@StatmanAartt </Anchor>
+    or <Anchor href="mailto:me@eben.sh">me@eben.sh</Anchor>
   </p>
 </section>

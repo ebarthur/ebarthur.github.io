@@ -1,5 +1,5 @@
 ---
-
+import Anchor from "./Anchor.astro";
 ---
 
 <section class="animate-fade-in animate-forwards opacity-0">
@@ -16,12 +16,13 @@
   <p
     class="mt-4 text-sm text-secondary animate-fade-in animate-delay-150 animate-forwards opacity-0"
   >
-    Hoping to make a mark in my community, I'm drawn to <a
+    Hoping to make a mark in my community, I'm drawn to
+    <Anchor
       href="https://en.wikipedia.org/wiki/Free_and_open-source_software"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="underline">FOSS</a
-    > and enjoy exploring
-    new directions in tech.
+      external
+    >
+      FOSS
+    </Anchor>
+    and enjoy exploring new directions in tech.
   </p>
 </section>

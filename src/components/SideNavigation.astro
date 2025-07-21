@@ -1,4 +1,6 @@
 ---
+import Anchor from "./Anchor.astro";
+
 type Props = {
   href: string;
 };
@@ -7,7 +9,10 @@ const { href } = Astro.props;
 ---
 
 <section class="col-span-1 flex items-start md:sticky top-34 h-fit">
-  <a href={href} class="flex items-center text-lg gap-2 italic">
+  <Anchor
+    href={href}
+    class="!no-underline flex items-center text-lg gap-2 italic"
+  >
     <slot />
-  </a>
+  </Anchor>
 </section>

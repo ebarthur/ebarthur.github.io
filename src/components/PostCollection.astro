@@ -2,6 +2,7 @@
 import { shortDate } from "@/lib/date";
 import { groupPosts } from "@/lib/group-posts";
 import type { CollectionEntry } from "astro:content";
+import Anchor from "./Anchor.astro";
 
 type Props = {
   posts: CollectionEntry<"writing">[];
@@ -31,9 +32,9 @@ const groupedPosts = groupPosts(posts);
             ]}
           >
             <div class="flex">
-              <a
+              <Anchor
                 href={`/writing/${post.id}`}
-                class="truncate flex-1 transition-colors group-hover:text-secondary group-hover:opacity-50 group-hover/item:text-stone-700 dark:group-hover/item:text-neutral-300 group-hover/item:!opacity-100"
+                class="truncate flex-1 !no-underline transition-colors group-hover:text-secondary group-hover:opacity-50 group-hover/item:text-stone-700 dark:group-hover/item:text-neutral-300 group-hover/item:!opacity-100"
               >
                 <span transition:name={`page-title:${post.data.title}`}>
                   {post.data.title}
@@ -49,7 +50,7 @@ const groupedPosts = groupPosts(posts);
                     ))}
                   </ul>
                 )}
-              </a>
+              </Anchor>
 
               <span class="text-right text-secondary transition-colors group-hover:opacity-50 group-hover/item:text-stone-700 dark:group-hover/item:text-neutral-400 group-hover/item:!opacity-90">
                 {shortDate(post.data.createdAt)}

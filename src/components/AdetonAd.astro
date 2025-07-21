@@ -1,13 +1,12 @@
 ---
-
+import Anchor from "./Anchor.astro";
 ---
 
 <div>
-  <a
+  <Anchor
     href="https://adeton.io"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex flex-col border rounded-xl md:w-10rem dark:border-neutral-700/50 overflow-hidden"
+    external
+    class="flex flex-col !no-underline border rounded-xl md:w-10rem dark:border-neutral-700/50 overflow-hidden"
   >
     <div class="p-3">
       <img src="/adeton-icon.svg" width="40" alt="Adeton" />
@@ -25,5 +24,5 @@
         Build and customize your own site now.
       </p>
     </div>
-  </a>
+  </Anchor>
 </div>
