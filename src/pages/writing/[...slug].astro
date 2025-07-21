@@ -36,7 +36,7 @@ const posts = (await getCollection("writing")).sort(
 const previous = index > 0 ? posts[index - 1] : undefined;
 ---
 
-<BlogPost post={post} headings={headings} title={post.data.title}>
+<BlogPost post={post} headings={headings}>
   <Content />
 
   <div class="border-t mt-6 mb-4 border-dashed dark:border-neutral-700/50">

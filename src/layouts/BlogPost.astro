@@ -15,12 +15,12 @@ import type { CollectionEntry } from "astro:content";
 type Props = {
   post: CollectionEntry<"writing">;
   headings: MarkdownHeading[];
-  title: string;
-  description?: string;
 };
 
-const { post, headings, title, description } = Astro.props;
+const { post, headings } = Astro.props;
 const readTime = getReadTime(post.body);
+
+const { title, description } = post.data;
 ---
 
 <html lang="en">
