@@ -35,13 +35,13 @@ const { title, description } = post.data;
   <body>
     <Loader />
 
-    <Container class="scroll-smooth max-md:px-2 py-32">
+    <Container class="max-md:py-15dvh">
       <SideNavigation href="/writing">
         <div class="i-solar-arrow-left-up-linear text-sm"></div>
         Writing
       </SideNavigation>
 
-      <section class="col-span-1 md:col-span-3 mt-2 w-full">
+      <section class="col-span-1 md:col-span-3 w-full md:py-15dvh">
         <header class="mb-8">
           <h1 transition:name={`page-title:${post.data.title}`}>
             {post.data.title}
