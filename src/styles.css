@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Newsreader:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&display=swap");
 
 :root {
@@ -17,7 +16,7 @@ html {
 }
 
 .text-secondary {
-	@apply text-zinc-500 dark:text-neutral-400;
+  @apply text-zinc-500 dark:text-neutral-400;
 }
 
 .bg-secondary {
@@ -26,10 +25,6 @@ html {
 
 .italic {
   font-family: "Newsreader", serif;
-}
-
-.header {
-  font-family: "Nunito", "Inter", serif;
 }
 
 .font-mono {
@@ -159,7 +154,7 @@ article h4,
 article h5,
 article h6 {
   @apply font-bold;
-  font-family: "Nunito", "Inter", serif;
+  font-family: "Inter", serif;
 }
 
 article h1 {
@@ -195,7 +190,7 @@ article li + li {
 * + h5,
 * + h6 {
   @apply mt-8;
-  font-family: "Nunito", "Inter", serif;
+  font-family: "Inter", serif;
 }
 
 .hover-link a {
