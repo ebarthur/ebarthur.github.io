@@ -5,7 +5,14 @@ export interface GridItem {
   isExternal?: boolean;
 }
 
- export type Column  ={
+export type Column = {
   label: string;
   items: GridItem[];
-}
+
+};
+
+export type Projects = {
+  name: string;
+  description: string;
+  link: string;
+}[];
