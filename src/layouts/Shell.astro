@@ -12,12 +12,16 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html transition:animate="none" lang="en">
+<html transition:animate="none" lang="en" class="h-full">
   <head>
     <CommonHead title={title} description={description} />
   </head>
-  <body>
-    <slot />
+
+  <body class="flex flex-col min-h-screen">
+    <main class="flex-grow">
+      <slot />
+    </main>
+
     <Footer />
   </body>
 </html>

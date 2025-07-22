@@ -23,7 +23,7 @@ const readTime = getReadTime(post.body);
 const { title, description } = post.data;
 ---
 
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <CommonHead title={title} description={description} />
     <link
@@ -32,39 +32,43 @@ const { title, description } = post.data;
     />
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen">
     <Loader />
 
-    <Container class="max-md:py-15dvh">
-      <SideNavigation href="/writing">
-        <div class="i-solar-arrow-left-up-linear text-sm"></div>
-        Writing
-      </SideNavigation>
+    <div class="flex-grow">
+      <Container class="max-md:py-15svh">
+        <SideNavigation href="/writing">
+          <div class="i-solar-arrow-left-up-linear text-sm"></div>
+          Writing
+        </SideNavigation>
 
-      <section class="col-span-1 md:col-span-3 w-full md:py-15dvh">
-        <header class="mb-8">
-          <h1 transition:name={`page-title:${post.data.title}`}>
-            {post.data.title}
-          </h1>
+        <section
+          class="col-span-1 md:col-span-3 w-full md:py-15svh scroll-smooth"
+        >
+          <header class="mb-8">
+            <h1 transition:name={`page-title:${post.data.title}`}>
+              {post.data.title}
+            </h1>
 
-          <div class="text-secondary text-xs flex gap-2 items-center">
-            <div>
-              <span>{formatDate(post.data.createdAt)}</span>
-              <span>&bull;</span>
-              <span>{readTime} min</span>
+            <div class="text-secondary text-xs flex gap-2 items-center">
+              <div>
+                <span>{formatDate(post.data.createdAt)}</span>
+                <span>&bull;</span>
+                <span>{readTime} min</span>
+              </div>
+
+              <Tags tags={post.data.tags || []} />
             </div>
+          </header>
 
-            <Tags tags={post.data.tags || []} />
-          </div>
-        </header>
+          <article class="max-w-none text-sm">
+            <slot />
+          </article>
+        </section>
 
-        <article class="max-w-none text-sm">
-          <slot />
-        </article>
-      </section>
-
-      <TableOfContents headings={headings} />
-    </Container>
+        <TableOfContents headings={headings} />
+      </Container>
+    </div>
 
     <Footer />
   </body>
