@@ -1,5 +1,6 @@
 ---
 import type { Column } from "@/lib/types";
+import Anchor from "./Anchor.astro";
 
 interface Props {
   columns: Column[];
@@ -54,18 +55,17 @@ const rows = Math.max(...columns.map((col) => col.items.length));
             >
               {item && (
                 <div>
-                  <a
+                  <Anchor
                     href={item.link}
-                    target={item.isExternal ? "_blank" : undefined}
-                    rel={item.isExternal ? "noopener noreferrer" : undefined}
-                    class="underline decoration-1 inline-flex items-center gap-1"
+                    external={item.isExternal}
+                    class="decoration-1 inline-flex items-center gap-1"
                   >
                     {item.title}
 
                     {item.isExternal && (
                       <span class="i-solar-arrow-right-up-linear text-neutral-500" />
                     )}
-                  </a>
+                  </Anchor>
 
                   <p class="text-secondary mt-1">{item.description}</p>
                 </div>

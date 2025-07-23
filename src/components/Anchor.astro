@@ -9,7 +9,7 @@ const { external = false, ...rest } = Astro.props;
 ---
 
 <a
-  class:list={["underline", rest.class]}
+  class:list={["underline inline-block", rest.class]}
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
   {...rest}
