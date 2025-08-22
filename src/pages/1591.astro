@@ -1,0 +1,27 @@
+---
+import CommonHead from "@/components/CommonHead.astro";
+import { KWA } from "@/components/KWA";
+import "@/styles.css";
+---
+
+<!doctype html>
+<html transition:animate="none" lang="en" class="overflow-x-hidden">
+  <head>
+    <CommonHead
+      image=""
+      title="I love you, Winma"
+      description="It's a fcvking appreciation!"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="overflow-x-hidden">
+    <KWA client:load />
+  </body>
+</html>
