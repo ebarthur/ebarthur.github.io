@@ -19,6 +19,9 @@ I don't think I have enough words for you, sir. Everything I do today is **heavi
 
 One day, I might find all the right words to express how much it means. Until then, God bless you, [GR](https://x.com/_yogr).
 
+## Winma
+
+Of course, you. Thank you for being my biggest support and my favorite person through it all. I couldn’t have done this without you.
 ## Tout le monde
 
 To everyone who has ever guided me in one way or another: your appreciation is coming. For now, just know that I’m thankful. Truly, deeply thankful.
