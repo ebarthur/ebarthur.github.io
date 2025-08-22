@@ -137,7 +137,7 @@ function Step2({ videoUrl }: Step2Props) {
 							})}
 						>
 							You are more than amazing: you are extraordinary. Having you in my
-							life feels like the greatest blessing I could ever receive. You're cute.
+							life feels like the greatest blessing I could ever receive.
 						</p>
 
 						<div
@@ -147,7 +147,7 @@ function Step2({ videoUrl }: Step2Props) {
 							})}
 						>
 							<div className="text-xl font-semibold">
-								I appreciate you so much 🎈
+								I appreciate you so much ❤️
 							</div>
 							<div id="signature" />
 							<div className="text-lg font-medium italic">I love you</div>
