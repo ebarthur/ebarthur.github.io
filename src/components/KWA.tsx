@@ -104,7 +104,7 @@ function Step2({ videoUrl }: Step2Props) {
 
 					<div className="w-30rem mt-8 space-y-6">
 						<h1
-							className={clsx("font-black text-3xl text-center hidden", {
+							className={clsx("font-black text-2xl text-center hidden", {
 								"opacity-0 animate-fade-in animate-forwards animate-duration-2000 animate-delay-1000 !block":
 									orchestrate,
 							})}
@@ -113,25 +113,29 @@ function Step2({ videoUrl }: Step2Props) {
 						</h1>
 
 						<p
-							className={clsx("text-lg leading-relaxed hidden", {
+							className={clsx("leading-relaxed hidden", {
 								"opacity-0 animate-fade-in animate-forwards animate-duration-3000 animate-delay-3000 !block":
 									orchestrate,
 							})}
 						>
-							Before you, I never believed people like you existed. You changed everything I thought I knew about love.
+							For so long, I never thought I'd find someone I could truly rely
+							on. Then I met you. Time and time again, you've shown me I can
+							depend on you. Thank you.
 						</p>
 
 						<p
-							className={clsx("text-lg leading-relaxed hidden", {
+							className={clsx("leading-relaxed hidden", {
 								"opacity-0 animate-fade-in animate-forwards animate-duration-3000 animate-delay-5000 !block":
 									orchestrate,
 							})}
 						>
-							Watching you become the woman you are today is my greatest joy. Your strength and drive inspire me every day
+							I've also watched you grow more beautifully into the woman you are
+							today, and it's been my greatest joy. Every day, your achievements, strength and
+							drive inspire me.
 						</p>
 
 						<p
-							className={clsx("text-lg leading-relaxed hidden", {
+							className={clsx("leading-relaxed hidden", {
 								"opacity-0 animate-fade-in animate-forwards animate-duration-3000 animate-delay-7000 !block":
 									orchestrate,
 							})}
