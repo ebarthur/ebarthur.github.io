@@ -68,7 +68,7 @@ export default function SteamClient() {
   );
 
   const playingClass = clsx(
-    "mt-1.5 text-xs rounded-md px-2 py-1",
+    "mt-1.5 text-xs rounded-md py-1",
     game ? "text-emerald-700 dark:text-emerald-500" : "text-secondary"
   );
 
