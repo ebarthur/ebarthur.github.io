@@ -15,7 +15,7 @@ export default function SteamClient() {
 
     const load = async () => {
       try {
-        const res = await fetch("/api/steam");
+        const res = await fetch("https://steam-worker.steam67.workers.dev/steam");
         if (!res.ok) {
           setHidden(true);
           return;
