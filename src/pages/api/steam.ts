@@ -1,8 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getSecret } from 'astro:env/server';
 
-export const prerender = false;
-
 export const GET: APIRoute = async () => {
   try {
     const STEAM_API_KEY = getSecret('STEAM_API_KEY')!;
