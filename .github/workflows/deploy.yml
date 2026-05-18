@@ -17,6 +17,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+      STEAM_ID: ${{ secrets.STEAM_ID }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4

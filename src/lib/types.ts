@@ -16,3 +16,16 @@ export type Projects = {
   description: string;
   link: string;
 }[];
+
+export type SteamPlayer = {
+  avatar?: string;
+  avatarfull?: string;
+  profileurl?: string;
+  personaname?: string;
+  personastate?: number;
+  gameextrainfo?: string;
+};
+
+export type SteamResponse = {
+  player?: SteamPlayer | null;
+};
