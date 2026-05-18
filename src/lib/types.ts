@@ -24,6 +24,7 @@ export type SteamPlayer = {
   personaname?: string;
   personastate?: number;
   gameextrainfo?: string;
+  gameid?: string;
 };
 
 export type SteamResponse = {
