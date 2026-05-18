@@ -78,7 +78,7 @@ export default function SteamClient() {
               rel="noopener noreferrer"
             >
               <div
-                className="i-solar-link-round-linear text-sm text-base"
+                className="i-solar-link-round-linear text-xs text-base"
                 aria-hidden="true"
               ></div>
             </a>
