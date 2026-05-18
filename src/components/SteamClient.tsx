@@ -64,7 +64,7 @@ export default function SteamClient() {
 
   const playingClass = clsx(
     "mt-1.5 text-xs rounded-md px-2 py-1",
-    game ? "border border-green-300 bg-green-50 text-green-900" : "text-slate-500"
+    game ? "text-emerald-700 dark:text-emerald-500" : "text-secondary"
   );
 
   return (
@@ -80,7 +80,7 @@ export default function SteamClient() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Steam profile"
-                className="inline-flex items-center text-slate-500 hover:(text-slate-900 dark:text-slate-100) transition-colors"
+                className="inline-flex items-center text-secondary hover:(text-slate-900 dark:text-slate-100) transition-colors"
               >
                 <span
                   className="i-solar-link-round-linear text-base"
@@ -89,7 +89,7 @@ export default function SteamClient() {
               </a>
             ) : null}
           </div>
-          <div className="text-[11px] text-slate-500">Status: {status}</div>
+          <div className="text-[11px] text-secondary">Status: {status}</div>
         </div>
       </div>
       <div className={playingClass}>
