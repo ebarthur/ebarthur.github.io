@@ -42,7 +42,7 @@ export default function SteamClient() {
   if (!player) {
     return (
       <div className="mt-4">
-        <div className="text-xs text-slate-500">Loading Steam profile…</div>
+        <div className="i-svg-spinners-3-dots-move text-secondary"/>
       </div>
     );
   }
@@ -61,6 +61,11 @@ export default function SteamClient() {
   ];
   const status = statusMap[player.personastate ?? 0] ?? "Unknown";
   const game = player.gameextrainfo;
+
+  const statusClass = clsx(
+    "text-[11px]",
+    status === "Online" ? "text-emerald-700 dark:text-emerald-500" : "text-secondary"
+  );
 
   const playingClass = clsx(
     "mt-1.5 text-xs rounded-md px-2 py-1",
@@ -89,7 +94,7 @@ export default function SteamClient() {
               </a>
             ) : null}
           </div>
-          <div className="text-[11px] text-secondary">Status: {status}</div>
+          <div className={statusClass}>Status: {status}</div>
         </div>
       </div>
       <div className={playingClass}>
